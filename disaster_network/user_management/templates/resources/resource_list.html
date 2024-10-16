@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- Resources Section Start -->
+                <h1 class="mb-4">Disaster Management Resources</h1>
+                <p>Access a variety of resources designed to help you prepare for, respond to, and recover from disasters. These guides, checklists, and links will help ensure you're equipped with the knowledge you need.</p>
+
+                <!-- Dynamic Content: Useful Links -->
+                <div class="bg-secondary p-5 mt-5">
+                    <h2 class="mb-4">Useful Links</h2>
+                    <ul>
+                        {% for link in useful_links %}
+                            <li>
+                                <a href="{{ link.url }}" class="text-primary" target="_blank">{{ link.title }}</a>
+                                <p>{{ link.description }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Dynamic Content: Educational Content -->
+                <div class="bg-secondary p-5 mt-5">
+                    <h2 class="mb-4">Educational Content</h2>
+                    <ul>
+                        {% for content in educational_content %}
+                            <li>
+                                <h3>{{ content.title }}</h3>
+                                <p>{{ content.content }}</p>
+                                {% if content.link %}
+                                    <a href="{{ content.link }}" class="text-primary" target="_blank">Read more</a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Dynamic Content: Emergency Contacts -->
+                <div class="bg-secondary p-5 mt-5">
+                    <h2 class="mb-4">Emergency Contacts</h2>
+                    <ul>
+                        {% for contact in emergency_contacts %}
+                            <li>{{ contact.name }} - {{ contact.phone_number }} ({{ contact.relationship }})</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Resources Section End -->
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Search Form Start -->
+                <div class="mb-5">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-3" placeholder="Keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+
+                <!-- Recent Post Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Recent Posts</h2>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="img/disaster-tips.jpg" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                        <a href="#" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Top 5 Disaster Preparedness Tips</a>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="img/evacuation-planning.jpg" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                        <a href="#" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Creating an Effective Evacuation Plan</a>
+                    </div>
+                </div>
+                <!-- Recent Post End -->
+
+                <!-- Tags Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Tag Cloud</h2>
+                    <div class="d-flex flex-wrap m-n1">
+                        <a href="#" class="btn btn-secondary m-1">Preparedness</a>
+                        <a href="#" class="btn btn-secondary m-1">Safety</a>
+                        <a href="#" class="btn btn-secondary m-1">Recovery</a>
+                        <a href="#" class="btn btn-secondary m-1">Support</a>
+                        <a href="#" class="btn btn-secondary m-1">Training</a>
+                    </div>
+                </div>
+                <!-- Tags End -->
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+{% endblock %}

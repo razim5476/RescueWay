@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- Messages Section Start -->
+                {% if messages %}
+                    <div class="container">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <!-- Messages Section End -->
+
+                <!-- Volunteer List Section Start -->
+                <h1 class="mb-4">Registered Volunteers</h1>
+
+                <a href="{% url 'registration' %}" class="btn btn-primary my-3">Register as a Volunteer</a>
+
+                {% if volunteers %}
+                    {% for volunteer in volunteers %}
+                    <div class="bg-white p-4 rounded shadow-sm mb-4">
+                        <h5>{{ volunteer.user.username }}</h5>
+                        <p><strong>Skills:</strong> {{ volunteer.skills }}</p>
+                        <p><strong>Availability:</strong> {{ volunteer.availability }}</p>
+                        <p><strong>Phone Number:</strong> {{ volunteer.phone_number }}</p>
+                        <p><strong>Status:</strong> 
+                            {% if volunteer.is_approved %}
+                                <span class="text-success">Approved</span>
+                            {% else %}
+                                <span class="text-warning">Verification Pending</span>
+                            {% endif %}
+                        </p>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center">No registered volunteers found.</p>
+                {% endif %}
+                <!-- Volunteer List Section End -->
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Recent Post Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Recent Posts</h2>
+                    <div class="d-flex mb-3 align-items-center">
+                        <img class="img-fluid rounded" src="{% static 'img/disaster-tips.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                        <a href="#" class="h6 d-block ms-3 text-dark text-decoration-none">Top 5 Disaster Preparedness Tips</a>
+                    </div>
+                    <div class="d-flex mb-3 align-items-center">
+                        <img class="img-fluid rounded" src="{% static 'img/evacuation-planning.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                        <a href="#" class="h6 d-block ms-3 text-dark text-decoration-none">Creating an Effective Evacuation Plan</a>
+                    </div>
+                </div>
+                <!-- Recent Post End -->
+
+                <!-- Tags Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Tag Cloud</h2>
+                    <div class="d-flex flex-wrap">
+                        <a href="#" class="btn btn-secondary m-1">Preparedness</a>
+                        <a href="#" class="btn btn-secondary m-1">Safety</a>
+                        <a href="#" class="btn btn-secondary m-1">Community</a>
+                        <a href="#" class="btn btn-secondary m-1">Support</a>
+                        <a href="#" class="btn btn-secondary m-1">Training</a>
+                        <a href="#" class="btn btn-secondary m-1">Awareness</a>
+                    </div>
+                </div>
+                <!-- Tags End -->
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+
+    <style>
+        /* Page styles */
+        .container-fluid {
+            background-color: #f8f9fa;
+        }
+
+        h1, h2 {
+            color: #0d6efd;
+            font-family: 'Barlow', sans-serif;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            border-color: #0a58ca;
+        }
+
+        /* Sidebar styles */
+        .img-fluid {
+            border-radius: 5px;
+        }
+
+        /* Card shadows */
+        .shadow-sm {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-success {
+            color: #28a745; /* Green for approved status */
+        }
+
+        .text-warning {
+            color: #ffc107; /* Yellow for pending status */
+        }
+    </style>
+</body>
+{% endblock %}

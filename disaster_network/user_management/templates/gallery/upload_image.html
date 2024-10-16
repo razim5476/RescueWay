@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Upload an Image</h2>
+    <div class="upload-container">
+        <form method="POST" action="{% url 'upload_image' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" id="imageInput" accept="image/*" class="file-input" />
+            <label for="imageInput" class="file-label">Choose Image</label>
+            <input type="text" name="title" id="titleInput" placeholder="Title" class="form-control my-2" />
+            <textarea name="description" id="descriptionInput" placeholder="Description" class="form-control my-2" rows="4"></textarea>
+            
+            <!-- Category Selection -->
+            <select name="category" id="categoryInput" class="form-control my-2">
+                <option value="">Select Category</option>
+                <option value="Flood">Flood</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Tsunami">Tsunami</option>
+                <option value="Fire">Fire</option>
+                <!-- Add more categories as needed -->
+            </select>
+
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .upload-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s;
+    }
+    
+    .upload-container:hover {
+        transform: scale(1.05);
+    }
+
+    .file-input {
+        display: none;
+    }
+
+    .file-label {
+        display: inline-block;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .file-label:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}

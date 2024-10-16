@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4" style="color: #0d6efd; font-family: 'Barlow', sans-serif;">Disaster List</h2>
+
+    <!-- Table to display the list of disasters -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th style="background-color: #0d6efd; color: white;">Disaster Name</th>
+                <th style="background-color: #0d6efd; color: white;">Type</th>
+                <th style="background-color: #0d6efd; color: white;">Date</th>
+                <th style="background-color: #0d6efd; color: white;">Location</th>
+                <th style="background-color: #0d6efd; color: white;">Description</th>
+                <th style="background-color: #0d6efd; color: white;">Status</th>
+                <th style="background-color: #0d6efd; color: white;">Photo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disaster in disasters %}
+            <tr>
+                <td>{{ disaster.name }}</td>
+                <td>{{ disaster.type }}</td> <!-- Display the disaster type -->
+                <td>{{ disaster.date }}</td>
+                <td>{{ disaster.location }}</td>
+                <td>{{ disaster.description }}</td>
+                <td>{{ disaster.status }}</td>
+                <td>
+                    {% if disaster.report_set.first.photo %}
+                        <img src="{{ disaster.report_set.first.photo.url }}" alt="Disaster photo" style="max-height: 100px; max-width: 100px; border: 1px solid #ced4da; border-radius: 5px;">
+                    {% else %}
+                        No photo available
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa; /* Light background for better contrast */
+    }
+
+    h2 {
+        color: #0d6efd; /* Primary color */
+        font-family: 'Barlow', sans-serif; /* Consistent font */
+    }
+
+    .table {
+        background-color: white; /* White background for table */
+        border-radius: 5px; /* Slightly rounded corners */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    }
+
+    th {
+        text-align: center; /* Center align table headers */
+        font-weight: bold; /* Bold text for headers */
+    }
+
+    td {
+        vertical-align: middle; /* Vertically center table data */
+    }
+
+    img {
+        border: 1px solid #ced4da; /* Border around images */
+        border-radius: 5px; /* Slightly rounded corners for images */
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f2f2f2; /* Alternate row color for better readability */
+    }
+
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #ced4da; /* Consistent border color */
+    }
+</style>
+{% endblock %}

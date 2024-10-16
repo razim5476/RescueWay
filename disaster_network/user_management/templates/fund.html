@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- Fundraising Campaigns Start -->
+                <h1 class="mb-4">Current Disaster Fundraising Campaigns</h1>
+                <p>Below are ongoing fundraising efforts aimed at helping disaster-affected regions. Please consider supporting any of these campaigns to contribute to relief and recovery efforts.</p>
+
+                <!-- Fundraising List -->
+                <div class="bg-secondary p-4 mb-5">
+                    <!-- Campaign 1 -->
+                    <div class="mb-4">
+                        <h3>Earthquake Relief in Region A</h3>
+                        <p>Category: Earthquake</p>
+                        <p>This campaign aims to provide immediate relief, shelter, and medical aid to the survivors of the recent earthquake in Region A.</p>
+                        <button class="btn btn-primary">Donate Now</button>
+                    </div>
+
+                    <!-- Campaign 2 -->
+                    <div class="mb-4">
+                        <h3>Flood Recovery in Region B</h3>
+                        <p>Category: Flood</p>
+                        <p>Help rebuild communities affected by severe flooding in Region B. Donations will go toward housing, food, and clean water.</p>
+                        <button class="btn btn-primary">Donate Now</button>
+                    </div>
+
+                    <!-- Campaign 3 -->
+                    <div class="mb-4">
+                        <h3>Wildfire Support in Region C</h3>
+                        <p>Category: Wildfire</p>
+                        <p>Funds raised will support firefighting efforts and provide emergency aid to those displaced by wildfires in Region C.</p>
+                        <button class="btn btn-primary">Donate Now</button>
+                    </div>
+                </div>
+                <!-- Fundraising Campaigns End -->
+
+                <!-- Fundraising Request Form Start -->
+                <div class="bg-secondary p-5">
+                    <h2 class="mb-4">Request a Fundraising Campaign</h2>
+                    <p>If you or your organization would like to start a fundraising campaign for disaster relief, please fill out the form below:</p>
+
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-12 col-sm-6">
+                                <input type="text" class="form-control bg-white border-0" placeholder="Your Name" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <input type="email" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control bg-white border-0" placeholder="Fundraising Campaign Name" style="height: 55px;" required>
+                            </div>
+                            <div class="col-12">
+                                <select class="form-control bg-white border-0" style="height: 55px;" required>
+                                    <option selected disabled>Category</option>
+                                    <option value="earthquake">Earthquake</option>
+                                    <option value="flood">Flood</option>
+                                    <option value="wildfire">Wildfire</option>
+                                    <option value="hurricane">Hurricane</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control bg-white border-0" rows="5" placeholder="Campaign Description" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Fundraising Request Form End -->
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Search Form Start -->
+                <div class="mb-5">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-3" placeholder="Keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+
+                <!-- Categories Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Categories</h2>
+                    <div class="d-flex flex-column justify-content-start bg-secondary p-4">
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Earthquake Relief</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Flood Recovery</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Wildfire Support</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Hurricane Assistance</a>
+                        <a class="h5" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>General Disaster Relief</a>
+                    </div>
+                </div>
+                <!-- Categories End -->
+
+                <!-- Recent Posts Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Recent Fundraisers</h2>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="{% static 'disaster-fund.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="Disaster Fundraising">
+                        <a href="" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Emergency Aid for Region D</a>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="{% static 'community-support.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="Community Support">
+                        <a href="" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Community Support After Wildfires</a>
+                    </div>
+                </div>
+                <!-- Recent Posts End -->
+
+                <!-- Tags Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Tag Cloud</h2>
+                    <div class="d-flex flex-wrap m-n1">
+                        <a href="" class="btn btn-secondary m-1">Relief</a>
+                        <a href="" class="btn btn-secondary m-1">Emergency Aid</a>
+                        <a href="" class="btn btn-secondary m-1">Reconstruction</a>
+                        <a href="" class="btn btn-secondary m-1">Fundraising</a>
+                        <a href="" class="btn btn-secondary m-1">Survivors</a>
+                        <a href="" class="btn btn-secondary m-1">Community Help</a>
+                    </div>
+                </div>
+                <!-- Tags End -->
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+
+{% endblock %}

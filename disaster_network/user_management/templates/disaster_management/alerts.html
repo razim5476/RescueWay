@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Disaster Alerts</h2>
+
+    <div class="list-group">
+        {% for alert in alerts %}
+            <div class="list-group-item">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ alert.alert_message }}</h5>
+                    <small class="text-muted">{{ alert.alert_date|date:"F j, Y, g:i a" }}</small>
+                </div>
+                <p class="mb-1">{{ alert.alert_message|truncatewords:20 }}</p>
+                <small class="text-muted">Disaster ID: {{ alert.disaster.id }}</small>
+
+                <!-- Delete Alert Button -->
+                {% comment %} <form action="{% url 'deactivate_alert' alert.id %}" method="POST" style="margin-top: 10px;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete Alert</button>
+                </form> {% endcomment %}
+            </div>
+        {% empty %}
+            <p class="text-center">No active alerts at the moment.</p>
+        {% endfor %}
+
+        {% if messages %}
+            <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    h2 {
+        color: #0d6efd; /* Primary color */
+        font-family: 'Barlow', sans-serif;
+    }
+
+    .list-group-item {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .list-group-item:hover {
+        background-color: #f0f1f3;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+    }
+</style>
+{% endblock %}

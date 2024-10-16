@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="margin-bottom:80px;">
+    <h2 class="text-center mb-4">Donate to {{ campaign.name }}</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <p class="card-text">{{ campaign.description }}</p>
+            <p><strong>Target Amount:</strong> {{ campaign.target_amount|floatformat:2 }} USD</p>
+            <p><strong>Raised So Far:</strong> {{ campaign.amount_raised|floatformat:2 }} USD</p>
+            <p><strong>End Date:</strong> {{ campaign.end_date|date:"F j, Y" }}</p>
+
+            <!-- Custom HTML form for donation -->
+            <form method="POST" action="{% url 'donate_to_campaign' campaign.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="donationAmount">Enter Donation Amount (INR)</label>
+                    <input type="number" name="amount" class="form-control" id="donationAmount" step="0.01" placeholder="Enter amount" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Donate Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    h2 {
+        color: #0d6efd;
+        font-family: 'Barlow', sans-serif;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}

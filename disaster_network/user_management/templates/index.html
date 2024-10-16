@@ -1,0 +1,398 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{% static 'img/carousel-1.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase"></h5>
+                            <h1 class="display-1 text-white mb-md-4">Prepare today for a better tomorrow</h1>
+                        {% if not user.is_authenticated%}
+                            <a href="{% url 'signup' %}" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Sign Up</a>
+                            <a href="{% url 'login' %}" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Sign In</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{% static 'img/carousel-2.jpg' %}" alt="Image">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase"></h5>
+                            <h1 class="display-1 text-white mb-md-4">Together, we can rebuild..</h1>
+                        {% if not user.is_authenticated%}
+                            <a href="{% url 'signup' %}" class="btn btn-primary py-md-3 px-md-5 me-3 rounded-pill">Sign Up</a>
+                            <a href="{% url 'login' %}" class="btn btn-secondary py-md-3 px-md-5 rounded-pill">Sign In</a>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid bg-secondary p-0">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">Welcome To <span class="text-primary">RESCUEWAY</span></h1>
+                <h4 class="text-primary mb-4">Prepare. Respond. Rebuild.</h4>
+                <p class="mb-4">RescueWay is a platform dedicated to preparing, responding, and recovering from natural and man-made disasters. We connect communities, provide real-time updates, and offer vital resources to help individuals and organizations stay informed and resilient. Together, we can reduce risks, save lives, and rebuild stronger.</p>
+                <a href="" class="btn btn-primary py-md-3 px-md-5 rounded-pill">Get A Quote</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="h-100 d-flex flex-column justify-content-center bg-primary p-5">
+                    <div class="d-flex text-white mb-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <i class="fa fa-user-tie fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>Real-Time Alerts</h3>
+                            <p class="mb-0">Provides instant updates on disasters, including warnings and ongoing emergency situations, helping users stay informed and take immediate action.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex text-white mb-5">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <i class="fa fa-chart-line fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>Resource Hub</h3>
+                            <p class="mb-0">A central location for emergency plans, response guides, and recovery resources, empowering individuals and organizations to prepare and respond effectively.</p>
+                        </div>
+                    </div>
+                    <div class="d-flex text-white">
+                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white text-primary rounded-circle mx-auto mb-4" style="width: 60px; height: 60px;">
+                            <i class="fa fa-balance-scale fs-4"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h3>Community Support</h3>
+                            <p class="mb-0">Connects users with local relief efforts, volunteer opportunities, and communication channels to foster a collaborative response during and after disasters.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    
+
+    <!-- Services Start -->
+    <div class="container-fluid pt-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">What We Offer</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-user-tie fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Emergency Alerts</h3>
+                    <p class="mb-0">Timely notifications to keep you informed of nearby disasters.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-chart-pie fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Preparedness Tips</h3>
+                    <p class="mb-0">Guides and strategies to help you stay ready for any emergency.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-chart-line fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Resource Directory</h3>
+                    <p class="mb-0">Access to essential services, shelters, and relief organizations.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-chart-area fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Volunteer Opportunities</h3>
+                    <p class="mb-0">Find ways to contribute and assist in disaster recovery efforts.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-balance-scale fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Recovery Assistance</h3>
+                    <p class="mb-0">Information on how to rebuild and recover after a disaster strikes.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-secondary text-center px-5">
+                    <div class="d-flex align-items-center justify-content-center bg-primary text-white rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                        <i class="fa fa-house-damage fa-2x"></i>
+                    </div>
+                    <h3 class="mb-3">Community Support Forums</h3>
+                    <p class="mb-0">A platform to share experiences, advice, and support with others affected.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Services End -->
+
+
+    <!-- Features Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Recent Updates & Alerts</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-bullhorn fs-4 text-white"></i>
+                        </div>
+                        <h3>New Disaster Alert</h3>
+                        <p class="mb-0">Stay informed about the latest disaster incidents with real-time alerts.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-map-marker-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Updated Affected Areas</h3>
+                        <p class="mb-0">Track recent updates on areas affected by natural calamities.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users fs-4 text-white"></i>
+                        </div>
+                        <h3>New Volunteers Needed</h3>
+                        <p class="mb-0">Opportunities to join relief efforts in disaster-hit zones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-block bg-primary h-100 text-center">
+                    <img class="img-fluid" src="{% static 'img/alert.jpg' %}" alt="">
+                    <div class="p-4">
+                        <p class="text-white mb-4">Stay connected with the latest safety updates and relief efforts. Get accurate information and make informed decisions during disasters.</p>
+                        <a href="" class="btn btn-light py-md-3 px-md-5 rounded-pill mb-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-calendar-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Upcoming Events</h3>
+                        <p class="mb-0">Get details on upcoming disaster preparedness drills and workshops.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-info-circle fs-4 text-white"></i>
+                        </div>
+                        <h3>Relief Effort Updates</h3>
+                        <p class="mb-0">Updates on the ongoing recovery efforts and available resources.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-phone-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Emergency Contacts</h3>
+                        <p class="mb-0">Essential emergency contacts for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Updates and Alerts End -->
+    
+
+
+    <!-- Quote Start -->
+    <div class="container-fluid bg-secondary px-0">
+        <div class="row g-0">
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">Request A Free Quote</h1>
+                <p class="mb-4">Kasd vero erat ea amet justo no stet, et elitr no dolore no elitr sea kasd et dolor diam tempor. Nonumy sed dolore no eirmod sit nonumy vero lorem amet stet diam at. Ea at lorem sed et, lorem et rebum ut eirmod gubergren, dolor ea duo diam justo dolor diam ipsum dolore stet stet elitr ut. Ipsum amet labore lorem lorem diam magna sea, eos sed dolore elitr.</p>
+                <form>
+                    <div class="row gx-3">
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
+                                <label for="form-floating-1">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="form-floating-2" placeholder="name@example.com">
+                                <label for="form-floating-2">Email address</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
+                                    <option selected>Financial Consultancy</option>
+                                    <option value="1">Strategy Consultancy</option>
+                                    <option value="2">Tax Consultancy</option>
+                                </select>
+                                <label for="floatingSelect">Select A Service</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-primary w-100 h-100" type="submit">Request A Quote</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6" style="min-height: 400px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="{% static 'img/quote.jpg' %}" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote End -->
+
+
+    <!-- Team Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Our Supporting Hands</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="{% static 'img/team-1.jpg' %}" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Prime Minister</h3>
+                        <p class="text-white text-uppercase mb-0">
+                            The ex-officio chairperson of the NDMA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="{% static 'img/team-2.jpg' %}" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Cabinet Minister</h3>
+                        <p class="text-white text-uppercase mb-0">The Vice-Chairman of the NDMA</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="team-item position-relative overflow-hidden">
+                    <img class="img-fluid w-100" src="{% static 'img/team-3.jpg' %}" alt="">
+                    <div class="team-text w-100 position-absolute top-50 text-center bg-primary p-4">
+                        <h3 class="text-white">Shri Rajendra Singh</h3>
+                        <p class="text-white text-uppercase mb-0">Memeber of NDMA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid bg-secondary p-0">
+        <div class="row g-0">
+            <div class="col-lg-6" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100" src="{% static 'img/testimonial.jpg' %}" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-6 py-6 px-5">
+                <h1 class="display-5 mb-4">What Say Our Client!!!</h1>
+                <div class="owl-carousel testimonial-carousel">
+                    <div class="testimonial-item">
+                        <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>"It always seems impossible until it's done."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded-circle" src="{% static 'img/testimonial-1.jpg' %}" alt="">
+                            <div class="ps-4">
+                                <h3>Nelson Mandela</h3>
+                                <span class="text-uppercase">Political Leader</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <p class="fs-4 fw-normal mb-4"><i class="fa fa-quote-left text-primary me-3"></i>"You may not control all the events that happen to you, but you can decide not to be reduced by them."</p>
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded-circle" src="{% static 'img/testimonial-2.jpg' %}" alt="">
+                            <div class="ps-4">
+                                <h3>Maya Angelou</h3>
+                                <span class="text-uppercase">Poet</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">My Blog Posts</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+    
+        <div class="row g-5">
+            {% if posts %}
+                {% for post in posts %}
+                <div class="col-lg-4">
+                    <div class="blog-item">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{% static 'img/blog-1.jpg' %}" alt="Blog Image">
+                        </div>
+                        <div class="bg-secondary d-flex">
+                            <div class="flex-shrink-0 d-flex flex-column justify-content-center text-center bg-primary text-white px-4">
+                                <span>{{ post.created_at|date:"d" }}</span>
+                                <h5 class="text-uppercase m-0">{{ post.created_at|date:"M" }}</h5>
+                                <span>{{ post.created_at|date:"Y" }}</span>
+                            </div>
+                            <div class="d-flex flex-column justify-content-center py-3 px-4">
+                                <div class="d-flex mb-2">
+                                    <small class="text-uppercase me-3"><i class="bi bi-person me-2"></i>{{ post.author }}</small>
+                                    <small class="text-uppercase me-3"><i class="bi bi-bookmarks me-2"></i></small>
+                                </div>
+                                <a class="h4" href="{% url 'blog_detail' post.id %}">{{ post.title }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p class="text-center">You have not created any blog posts yet.</p>
+            {% endif %}
+        </div>
+    </div><!-- Blog End -->
+    
+
+{% endblock %}

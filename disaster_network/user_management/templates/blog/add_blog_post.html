@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="margin-bottom: 80px;"> <!-- Add bottom margin here -->
+    <h2 class="text-center mb-4">Add a New Blog Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <!-- Display error message if there is any -->
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Enter the title">
+        </div>
+        <div class="form-group mt-3">
+            <label for="content">Content</label>
+            <textarea id="content" name="content" class="form-control" rows="5" placeholder="Write your content here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
+
+    <div class="text-center mt-4"> <!-- Center the button -->
+        <a href="{% url 'blog_list' %}" class="btn btn-secondary">Go to Blog List</a>
+    </div>
+</div>
+
+<style>
+    /* Container styles */
+    .container {
+        max-width: 600px; /* Limit width for better readability */
+        margin: auto; /* Center container */
+    }
+
+    /* Heading styles */
+    h2 {
+        color: #007bff; /* Primary color */
+        font-weight: bold; /* Bold text for emphasis */
+    }
+
+    /* Alert styles */
+    .alert {
+        margin-bottom: 20px; /* Space below the alert */
+        padding: 15px; /* Increase padding for better visibility */
+        border-radius: 5px; /* Rounded corners for alerts */
+        font-weight: bold; /* Bold text for alerts */
+    }
+
+    /* Label styles */
+    .form-group label {
+        font-weight: bold; /* Make labels bold */
+        color: #333; /* Dark color for labels */
+    }
+
+    /* Input and textarea styles */
+    .form-control {
+        border: 1px solid #ced4da; /* Light gray border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px; /* Padding inside inputs */
+        transition: border-color 0.3s; /* Smooth transition for border color */
+    }
+
+    .form-control:focus {
+        border-color: #007bff; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Shadow effect on focus */
+    }
+
+    /* Button styles */
+    .btn-primary {
+        background-color: #007bff; /* Primary button color */
+        border: none; /* Remove default border */
+        padding: 10px 20px; /* Padding for button */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .btn-secondary {
+        background-color: #6c757d; /* Secondary button color */
+        border: none; /* Remove default border */
+        padding: 10px 20px; /* Padding for button */
+        border-radius: 5px; /* Rounded corners */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268; /* Darker shade on hover */
+    }
+</style>
+{% endblock %}

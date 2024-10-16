@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Report a Disaster</h2>
+
+    <form method="POST" enctype="multipart/form-data" class="mb-5">
+        {% csrf_token %}
+
+        <!-- Disaster Type -->
+        <div class="mb-3">
+            <label for="type" class="form-label">Disaster Type</label>
+            <select class="form-control" id="type" name="type" required>
+                <option value="" disabled selected>-- Choose a type --</option>
+                {% for value, label in disaster_types %}
+                    <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+
+        <!-- Disaster Name -->
+        <div class="mb-3">
+            <label for="name" class="form-label">Disaster Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter the disaster name" required>
+        </div>
+
+        <!-- Location (User Selects on Map) -->
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" id="location" name="location" placeholder="Click on the map to select location" required readonly>
+        </div>
+
+        <!-- Map -->
+        <div id="map" style="height: 400px;"></div>
+
+        <!-- Date -->
+        <div class="mb-3">
+            <label for="date" class="form-label">Date of Disaster</label>
+            <input type="datetime-local" class="form-control" id="date" name="date" required>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="4" placeholder="Provide details about the disaster" required></textarea>
+        </div>
+
+        <!-- Status -->
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <select class="form-control" id="status" name="status" required>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Resolved">Resolved</option>
+            </select>
+        </div>
+
+        <!-- Photo Upload (Optional) -->
+        <div class="mb-3">
+            <label for="photo" class="form-label">Upload a Photo (Optional)</label>
+            <input type="file" class="form-control" id="photo" name="photo">
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary w-100">Submit Report</button>
+
+        {% if success_message %}
+            <div class="alert alert-success mt-3">{{ success_message }}</div>
+        {% endif %}
+
+        {% if error_message %}
+            <div class="alert alert-danger mt-3">{{ error_message }}</div>
+        {% endif %}
+    </form>
+</div>
+
+<!-- Include Leaflet.js Library -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<!-- Leaflet.js and Reverse Geocoding Script -->
+<script>
+    // Initialize the map and set its view to a default location
+    var map = L.map('map').setView([51.505, -0.09], 13);  // Default to London; change as needed
+
+    // Load OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add a marker
+    var marker;
+
+    // Function to reverse geocode the coordinates into an address
+    function reverseGeocode(lat, lon) {
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`)
+        .then(response => response.json())
+        .then(data => {
+            var address = data.display_name;
+            document.getElementById('location').value = address;
+        })
+        .catch(error => console.log('Error fetching location:', error));
+    }
+
+    // Event listener for map clicks to update location
+    map.on('click', function(e) {
+        var lat = e.latlng.lat;
+        var lon = e.latlng.lng;
+
+        // Remove existing marker
+        if (marker) {
+            map.removeLayer(marker);
+        }
+
+        // Add new marker at clicked position
+        marker = L.marker([lat, lon]).addTo(map);
+
+        // Reverse geocode to get the address
+        reverseGeocode(lat, lon);
+    });
+</script>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    h2 {
+        color: #0d6efd; /* Primary color */
+        font-family: 'Barlow', sans-serif;
+    }
+
+    .form-label {
+        color: #495057;
+        font-weight: 600;
+    }
+
+    .form-control {
+        border: 1px solid #ced4da;
+        box-shadow: none;
+        transition: border-color 0.2s ease-in-out;
+    }
+
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background-color: #084298;
+        border-color: #084298;
+    }
+
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+
+    .mb-5 {
+        margin-bottom: 60px;
+    }
+
+    #map {
+        margin-top: 20px;
+        border: 1px solid #ced4da;
+    }
+</style>
+{% endblock %}

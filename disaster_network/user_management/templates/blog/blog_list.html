@@ -1,0 +1,59 @@
+<!-- blog/templates/blog/blog_list.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="margin-bottom: 80px;">
+    <h2 class="text-center mb-4">Blog Posts</h2>
+
+    {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <p class="card-text">By {{ post.author }} on {{ post.created_at }}</p>
+                            <a href="{% url 'blog_detail' post.id %}" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info text-center">No blog posts available.</div>
+    {% endif %}
+    
+    <div class="text-center mt-4">
+        <a href="{% url 'add_blog_post' %}" class="btn btn-success">Add New Post</a>
+    </div>
+</div>
+
+<style>
+    .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Your primary button color */
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+    .btn-success {
+        background-color: #28a745; /* Green button for adding new posts */
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #218838; /* Darker shade on hover */
+    }
+</style>
+{% endblock %}

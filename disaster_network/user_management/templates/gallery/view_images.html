@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Gallery</h2>
+
+    <!-- Category Filter -->
+    <div class="text-center mb-4">
+        <form method="GET" action="{% url 'gallery_view' %}">
+            <select name="category" onchange="this.form.submit();" class="form-control my-2">
+                <option value="">All Categories</option>
+                <option value="Flood">Flood</option>
+                <option value="Earthquake">Earthquake</option>
+                <option value="Tsunami">Tsunami</option>
+                <option value="Fire">Fire</option>
+                <!-- Add more categories as needed -->
+            </select>
+        </form>
+    </div>
+
+    <div class="row">
+        {% for image in images %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ image.image.url }}" class="card-img-top img-fluid" alt="{{ image.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ image.title }}</h5>
+                        <p class="card-text">{{ image.description }}</p>
+                        <p class="card-text"><strong>Category:</strong> {{ image.category }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<style>
+    .card {
+        transition: transform 0.3s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .img-fluid {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
+{% endblock %}

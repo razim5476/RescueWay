@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-dark p-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 text-white">Features</h1>
+                <a href="{% url 'index' %}">Home</a>
+                <i class="far fa-square text-primary px-2"></i>
+                <a href="{% url 'feature' %}">Features</a>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Features Start -->
+    <div class="container-fluid py-6 px-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h1 class="display-5 mb-0">Recent Updates & Alerts</h1>
+            <hr class="w-25 mx-auto bg-primary">
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-bullhorn fs-4 text-white"></i>
+                        </div>
+                        <h3>New Disaster Alert</h3>
+                        <p class="mb-0">Stay informed about the latest disaster incidents with real-time alerts.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-map-marker-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Updated Affected Areas</h3>
+                        <p class="mb-0">Track recent updates on areas affected by natural calamities.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users fs-4 text-white"></i>
+                        </div>
+                        <h3>New Volunteers Needed</h3>
+                        <p class="mb-0">Opportunities to join relief efforts in disaster-hit zones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="d-block bg-primary h-100 text-center">
+                    <img class="img-fluid" src="{% static 'img/alert.jpg' %}" alt="">
+                    <div class="p-4">
+                        <p class="text-white mb-4">Stay connected with the latest safety updates and relief efforts. Get accurate information and make informed decisions during disasters.</p>
+                        <a href="" class="btn btn-light py-md-3 px-md-5 rounded-pill mb-2">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="row g-5">
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-calendar-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Upcoming Events</h3>
+                        <p class="mb-0">Get details on upcoming disaster preparedness drills and workshops.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-info-circle fs-4 text-white"></i>
+                        </div>
+                        <h3>Relief Effort Updates</h3>
+                        <p class="mb-0">Updates on the ongoing recovery efforts and available resources.</p>
+                    </div>
+                    <div class="col-12">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                            <i class="fa fa-phone-alt fs-4 text-white"></i>
+                        </div>
+                        <h3>Emergency Contacts</h3>
+                        <p class="mb-0">Essential emergency contacts for immediate assistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Updates and Alerts End -->
+    
+
+{% endblock %}

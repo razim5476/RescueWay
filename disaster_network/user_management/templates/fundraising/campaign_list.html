@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5" style="margin-bottom:80px;">
+    <h2 class="text-center mb-4">Active Fundraising Campaigns</h2>
+
+    <!-- Display all active campaigns -->
+    <div class="row">
+        {% for campaign in campaigns %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ campaign.title }}</h5>
+                    <p class="card-text">{{ campaign.description|truncatewords:15 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">{{ campaign.goal_amount|floatformat:2 }} USD Goal</small>
+                        <a href="{% url 'donate_to_campaign' campaign.id %}" class="btn btn-primary">Donate Now</a>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    Raised So Far: {{ campaign.amount_raised|floatformat:2 }} USD<br>
+                    Ends on: {{ campaign.end_date|date:"F j, Y" }}
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No active fundraising campaigns at the moment.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Optional: Button to add a new campaign (for admins or authorized users) -->
+    <div class="text-center mt-5">
+        <a href="{% url 'campaign' %}" class="btn btn-success">Start a New Campaign</a>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    h2 {
+        color: #0d6efd;
+        font-family: 'Barlow', sans-serif;
+    }
+
+    .card {
+        background-color: #ffffff;
+        border: 1px solid #dee2e6;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-footer {
+        background-color: #f0f1f3;
+    }
+
+    .btn-primary {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    .btn-primary:hover {
+        background-color: #0b5ed7;
+        border-color: #0a58ca;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+</style>
+{% endblock %}

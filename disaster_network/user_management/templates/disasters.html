@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    <div class="container-fluid py-6 px-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- Disaster Types and Coping Strategies Start -->
+                <h1 class="mb-4">Understanding Disasters and How to Cope</h1>
+                <p>Natural and man-made disasters can strike at any time. Knowing how to respond and what actions to take during a disaster is crucial to survival and recovery. Below is a guide on different types of disasters and essential survival strategies.</p>
+
+                <!-- Section 1: Types of Disasters -->
+                <div class="bg-secondary p-4 mb-5">
+                    <h2 class="mb-4">Types of Disasters</h2>
+
+                    <!-- Earthquake -->
+                    <div class="mb-4">
+                        <img src="{% static 'images/earthquake.jpg' %}" class="img-fluid w-100 animate-img" alt="Earthquake Image">
+                        <h3 class="mt-3">Earthquake</h3>
+                        <p>Earthquakes can cause immense damage to infrastructure and pose a threat to human life. If indoors, "Drop, Cover, and Hold On." Seek shelter under sturdy furniture and stay away from windows.</p>
+                    </div>
+
+                    <!-- Flood -->
+                    <div class="mb-4">
+                        <img src="{% static 'images/flood.jpg' %}" class="img-fluid w-100 animate-img" alt="Flood Image">
+                        <h3 class="mt-3">Flood</h3>
+                        <p>Floods can occur quickly, especially in low-lying areas. Move to higher ground and avoid walking or driving through floodwaters, as they can be deeper and faster than they appear.</p>
+                    </div>
+
+                    <!-- Wildfire -->
+                    <div class="mb-4">
+                        <img src="{% static 'images/wildfire.jpg' %}" class="img-fluid w-100 animate-img" alt="Wildfire Image">
+                        <h3 class="mt-3">Wildfire</h3>
+                        <p>Wildfires spread rapidly, especially in dry conditions. Evacuate early if advised, and if trapped, find a body of water or cover yourself in wet cloth to reduce exposure to flames.</p>
+                    </div>
+                </div>
+                <!-- Section 1 End -->
+
+                <!-- Section 2: What to Do During a Disaster -->
+                <div class="bg-secondary p-4 mb-5">
+                    <h2 class="mb-4">What to Do During a Disaster</h2>
+                    <p>In any disaster, your first priority should be your safety and the safety of those around you. Here are some general tips for staying safe during different types of disasters:</p>
+
+                    <ul>
+                        <li>Stay informed by listening to local news or emergency alerts.</li>
+                        <li>Follow evacuation orders immediately if given by authorities.</li>
+                        <li>Check on neighbors, especially the elderly or those with disabilities.</li>
+                        <li>Do not return to dangerous areas until it is declared safe by officials.</li>
+                    </ul>
+                </div>
+                <!-- Section 2 End -->
+
+                <!-- Section 3: How to Survive After a Disaster -->
+                <div class="bg-secondary p-4 mb-5">
+                    <h2 class="mb-4">How to Survive After a Disaster</h2>
+                    <p>After a disaster, survival is about securing food, water, and shelter. You may also need to provide first aid, find help, or rebuild your life. Here’s what you can do:</p>
+
+                    <ul>
+                        <li>Stay calm and assess the situation around you.</li>
+                        <li>Make sure you have clean drinking water. Boil or purify water if needed.</li>
+                        <li>Conserve food supplies and ration accordingly.</li>
+                        <li>Help others in your community by sharing resources and providing support.</li>
+                    </ul>
+                </div>
+                <!-- Section 3 End -->
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Search Form Start -->
+                <div class="mb-5">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-3" placeholder="Keyword">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+
+                <!-- Categories Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Categories</h2>
+                    <div class="d-flex flex-column justify-content-start bg-secondary p-4">
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Earthquakes</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Floods</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Wildfires</a>
+                        <a class="h5 mb-3" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Hurricanes</a>
+                        <a class="h5" href="#"><i class="bi bi-arrow-right text-primary me-2"></i>Emergency Preparedness</a>
+                    </div>
+                </div>
+                <!-- Categories End -->
+
+                <!-- Recent Posts Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Recent Posts</h2>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="{% static 'disaster-tips.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="Disaster Tips">
+                        <a href="" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Top 5 Disaster Preparedness Tips</a>
+                    </div>
+                    <div class="d-flex mb-3">
+                        <img class="img-fluid" src="{% static 'evacuation-planning.jpg' %}" style="width: 100px; height: 100px; object-fit: cover;" alt="Evacuation Planning">
+                        <a href="" class="h5 d-flex align-items-center bg-secondary px-3 mb-0">Creating an Effective Evacuation Plan</a>
+                    </div>
+                </div>
+                <!-- Recent Posts End -->
+
+                <!-- Tags Start -->
+                <div class="mb-5">
+                    <h2 class="mb-4">Tag Cloud</h2>
+                    <div class="d-flex flex-wrap m-n1">
+                        <a href="" class="btn btn-secondary m-1">Preparedness</a>
+                        <a href="" class="btn btn-secondary m-1">Safety</a>
+                        <a href="" class="btn btn-secondary m-1">Resilience</a>
+                        <a href="" class="btn btn-secondary m-1">Community</a>
+                        <a href="" class="btn btn-secondary m-1">Evacuation</a>
+                        <a href="" class="btn btn-secondary m-1">Survival</a>
+                    </div>
+                </div>
+                <!-- Tags End -->
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+
+    <!-- Custom CSS for Animations -->
+    <style>
+        .animate-img {
+            transition: transform 0.3s ease;
+        }
+
+        .animate-img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+
+{% endblock %}
