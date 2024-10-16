@@ -20,10 +20,10 @@
 2.**Navigate to the project directory:**
   cd DisasterNetwork
 
-3.**Set up a virtual environment:
+3.**Set up a virtual environment:**
   python -m venv venv
 
-4.**Activate the virtual environment:
+4.**Activate the virtual environment:**
   On Windows:
   venv\Scripts\activate
 
@@ -47,18 +47,6 @@
   Log in or sign up to explore the features.
   Admin users can add content to the Resource Hub, approve volunteers, and manage fundraising campaigns.
   Users can read blogs, add comments, and access emergency information.
-  Project Structure
-
-  DisasterNetwork/
-  ├── disaster_network/       # Project settings and URLs
-  ├── user_management/        # User authentication and profiles
-  ├── disaster_management/    # Alert notifications and disaster management
-  ├── fundraising/            # Fundraising campaigns
-  ├── volunteer_management/   # Volunteer registration and approval
-  ├── resources/              # Useful links, educational content, emergency contacts
-  ├── blog/                   # Blog section for user stories and experiences
-  ├── gallery/                # Gallery for relief images
-  └── README.md               # Project documentation
 
 
   Contributing
@@ -80,12 +68,13 @@
 
 
 
-  Technologies Used
-  Backend: Django, Python
-  Frontend: HTML, CSS, JavaScript, Bootstrap
-  Database: SQLite (or PostgreSQL, MySQL if configured)
-  Version Control: Git and GitHub
-  Future Improvements
+  **Technologies Used**
+  **Backend**: Django, Python
+  **Frontend**: HTML, CSS, JavaScript, Bootstrap
+  **Database**: MySQL
+  **Version Control**: Git and GitHub
+  
+  **Future Improvements**
   Real-time Notifications: Implement WebSocket-based real-time notifications for alerts.
   Multi-language Support: Add support for multiple languages to cater to a global audience.
   Mobile App Integration: Develop a mobile app version for Android and iOS.
